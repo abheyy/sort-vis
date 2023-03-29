@@ -37,22 +37,9 @@ const VisualizerControls = ({
 }) => {
   return (
     <div className="VisualizerControls">
-      {/* Repeat */}
-      {/* <Button
-        icon={Repeat}
-        onClick={onRepeat}
-        disabled={isDisabled(onRepeat, repeatDisabled)}
-        className="VisualizerControls__Button"
-      /> */}
+    
 
-      {/* Backward Button  */}
-      {/* <Button
-        icon={Backward}
-        onClick={onBackward}
-        disabled={isDisabled(onBackward, backwardDisabled)}
-        iconClass="VisualizerControls__Icon"
-        className="VisualizerControls__Button"
-      /> */}
+
 
       {/* Play or Pause button - context dependent */}
       <Button
@@ -68,14 +55,7 @@ const VisualizerControls = ({
         className="VisualizerControls__CenterButton"
       />
 
-      {/* Forward Button 
-      <Button
-        icon={Forward}
-        onClick={onForward}
-        disabled={isDisabled(onForward, forwardDisabled)}
-        iconClass="VisualizerControls__Icon"
-        className="VisualizerControls__Button"
-      /> */}
+   
 
       {/* Playback Speed */}
       <Menu
