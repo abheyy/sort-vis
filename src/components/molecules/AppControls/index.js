@@ -25,7 +25,7 @@ const AppControls = ({
           'Insertion Sort',
           'Merge Sort',
           'Quick Sort',
-          'Quick Sort 3',
+          
           'Heap Sort',
           'Shell Sort'
         ]}
@@ -37,7 +37,7 @@ const AppControls = ({
         <span>Size</span>
         <Menu
           placeholder="Array Size"
-          items={['5', '10', '25', '50', '75', '100']}
+          items={['5', '10','15', '20', ]}
           selected={String(arraySize)}
           onSelect={onArraySizeChange}
         />

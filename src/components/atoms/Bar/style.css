@@ -11,6 +11,12 @@
   margin: 0 auto 0.25rem;
 }
 
+.BarStyle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Bar_sorted {
   background-color: var(--primary);
 }

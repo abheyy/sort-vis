@@ -28,7 +28,9 @@
 }
 
 .VisualizerControls__SpeedButton {
-  padding-right: 12px;
+  padding-right: 30px;
+  width: auto;
+
 }
 
 .VisualizerControls__Icon {

@@ -28,18 +28,15 @@ import QuickSort, {
   QuickSortKey,
   QuickSortDesc
 } from './algorithms/QuickSort';
-// import QuickSort3, {
-//   QuickSort3Key,
-//   QuickSort3Desc
-// } from './algorithms/QuickSort3';
-// import HeapSort, {
-//   HeapSortKey,
-//   HeapSortDesc
-// } from './algorithms/HeapSort';
-// import ShellSort, {
-//   ShellSortKey,
-//   ShellSortDesc
-// } from './algorithms/ShellSort';
+
+import HeapSort, {
+  HeapSortKey,
+  HeapSortDesc
+} from './algorithms/HeapSort';
+import ShellSort, {
+  ShellSortKey,
+  ShellSortDesc
+} from './algorithms/ShellSort';
 
 class App extends Component {
   state = {
@@ -57,9 +54,9 @@ class App extends Component {
     'Insertion Sort': InsertionSort,
     'Merge Sort': MergeSort,
     'Quick Sort': QuickSort,
-    // 'Quick Sort 3': QuickSort3,
-    // 'Heap Sort': HeapSort,
-    // 'Shell Sort': ShellSort
+
+    'Heap Sort': HeapSort,
+    'Shell Sort': ShellSort
   };
 
   ALGORITHM_KEY = {
@@ -68,9 +65,9 @@ class App extends Component {
     'Insertion Sort': InsertionSortKey,
     'Merge Sort': MergeSortKey,
     'Quick Sort': QuickSortKey,
-    // 'Quick Sort 3': QuickSort3Key,
-    // 'Heap Sort': HeapSortKey,
-    // 'Shell Sort': ShellSortKey
+
+    'Heap Sort': HeapSortKey,
+    'Shell Sort': ShellSortKey
   };
 
   ALGORITHM_DESC = {
@@ -79,9 +76,9 @@ class App extends Component {
     'Insertion Sort': InsertionSortDesc,
     'Merge Sort': MergeSortDesc,
     'Quick Sort': QuickSortDesc,
-    // 'Quick Sort 3': QuickSort3Desc,
-    // 'Heap Sort': HeapSortDesc,
-    // 'Shell Sort': ShellSortDesc
+  
+    'Heap Sort': HeapSortDesc,
+    'Shell Sort': ShellSortDesc
   };
 
   componentDidMount() {
@@ -114,7 +111,7 @@ class App extends Component {
 
   handleArraySizeChange = (size) => {
     size = Number(size);
-    size = size > 100 ? 100 : size;
+    size = size > 25 ? 25 : size;
     size = size < 0 ? 0 : size;
     this.setState({ arraySize: size }, this.generateRandomArray);
   };
