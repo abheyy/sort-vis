@@ -10,6 +10,7 @@ const AppControls = ({
   algorithm,
   onAlgorithmChange,
   onGenerateRandomArray,
+  takeInputArray ,
   arraySize,
   onArraySizeChange,
   onToggleDarkMode,
@@ -25,7 +26,6 @@ const AppControls = ({
           'Insertion Sort',
           'Merge Sort',
           'Quick Sort',
-          
           'Heap Sort',
           'Shell Sort'
         ]}
@@ -45,6 +45,11 @@ const AppControls = ({
 
       <Button onClick={onGenerateRandomArray}>Randomize</Button>
 
+      <Button onClick={takeInputArray}
+      onSelect={onArraySizeChange}
+      >Generates Array</Button>
+      
+
       <Switch
         label="Dark Mode"
         onSwitch={onToggleDarkMode}
@@ -58,6 +63,7 @@ AppControls.propTypes = {
   algorithm: PropTypes.string,
   onAlgorithmChange: PropTypes.func.isRequired,
   onGenerateRandomArray: PropTypes.func.isRequired,
+  takeInputArray: PropTypes.func.isRequired,
   arraySize: PropTypes.number,
   onArraySizeChange: PropTypes.func.isRequired,
   onToggleDarkMode: PropTypes.func.isRequired,

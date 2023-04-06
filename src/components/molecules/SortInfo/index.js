@@ -21,8 +21,7 @@ const SortInfo = ({
             description
           ) : (
             <p>
-              You must select an algorithm before you can visualize it's
-              execution on an array of numbers.
+              Choose an Algorithm first please.
             </p>
           )}
         </article>

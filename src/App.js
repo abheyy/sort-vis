@@ -109,12 +109,71 @@ class App extends Component {
     this.setState({ algorithm }, this.generateRandomArray);
   };
 
+  //takes input from the user
+
+  //handle null values
+  // takeInputArray = () => {
+    
+  //     const input = prompt("Enter comma-separated array values:");
+  //     const inputArray = input.split(",").map((val) => parseInt(val.trim()));
+
+    
+    
+    
+    
+
+      
+      
+    
+   
+  //   if (inputArray.length >= this.state.arraySize) {
+  //     alert(`Array size should be ${this.state.arraySize}.`);
+  //   }
+
+
+  //   //onArraySizeChange(inputArray);
+    
+    
+  //   this.setState({
+  //     array: inputArray,
+  //     trace: []
+  //   }, this.createTrace);
+  // };
+
+
+  takeInputArray = () => {
+    try {
+      const input = prompt("Enter comma-separated array values:");
+      if (input === null) { // Handle error when user cancels
+        throw new Error("User cancelled the prompt");
+      }
+      const inputArray = input.split(",").map((val) => parseInt(val.trim()));
+        
+      if (inputArray.length >= this.state.arraySize) {
+        alert(`Array size should be ${this.state.arraySize}.`);
+      }
+  
+      this.setState({
+        array: inputArray,
+        trace: []
+      }, this.createTrace);
+  
+    } catch(error) {
+      console.error(error); // Log the error message to the console
+    }
+  };
+
+  
+  
+
   handleArraySizeChange = (size) => {
     size = Number(size);
     size = size > 25 ? 25 : size;
     size = size < 0 ? 0 : size;
     this.setState({ arraySize: size }, this.generateRandomArray);
   };
+
+
 
   createTrace = () => {
     const numbers = [...this.state.array];
@@ -147,6 +206,7 @@ class App extends Component {
     const controls = (
       <AppControls
         onGenerateRandomArray={this.generateRandomArray}
+        takeInputArray={this.takeInputArray}
         algorithm={this.state.algorithm}
         onAlgorithmChange={this.handleAlgorithmChange}
         arraySize={this.state.arraySize}
