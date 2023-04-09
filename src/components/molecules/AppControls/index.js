@@ -43,11 +43,11 @@ const AppControls = ({
         />
       </div>
 
-      <Button onClick={onGenerateRandomArray}>Randomize</Button>
+      <Button onClick={onGenerateRandomArray}>Random Array</Button>
 
       <Button onClick={takeInputArray}
       onSelect={onArraySizeChange}
-      >Generates Array</Button>
+      >Generate Array</Button>
       
 
       {/* <Switch
