@@ -50,11 +50,11 @@ const AppControls = ({
       >Generates Array</Button>
       
 
-      <Switch
+      {/* <Switch
         label="Dark Mode"
         onSwitch={onToggleDarkMode}
         checked={darkMode}
-      />
+      /> */}
     </Fragment>
   );
 };

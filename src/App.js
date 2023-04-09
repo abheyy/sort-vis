@@ -106,7 +106,9 @@ class App extends Component {
   };
 
   handleAlgorithmChange = (algorithm) => {
-    this.setState({ algorithm }, this.generateRandomArray);
+    this.setState({ algorithm });
+
+    //this.setState({ algorithm }, this.generateRandomArray);
   };
 
   //takes input from the user
