@@ -54,7 +54,6 @@ class App extends Component {
     'Insertion Sort': InsertionSort,
     'Merge Sort': MergeSort,
     'Quick Sort': QuickSort,
-
     'Heap Sort': HeapSort,
     'Shell Sort': ShellSort
   };
@@ -65,7 +64,6 @@ class App extends Component {
     'Insertion Sort': InsertionSortKey,
     'Merge Sort': MergeSortKey,
     'Quick Sort': QuickSortKey,
-
     'Heap Sort': HeapSortKey,
     'Shell Sort': ShellSortKey
   };
@@ -76,7 +74,7 @@ class App extends Component {
     'Insertion Sort': InsertionSortDesc,
     'Merge Sort': MergeSortDesc,
     'Quick Sort': QuickSortDesc,
-  
+
     'Heap Sort': HeapSortDesc,
     'Shell Sort': ShellSortDesc
   };
@@ -107,6 +105,7 @@ class App extends Component {
 
   handleAlgorithmChange = (algorithm) => {
     this.setState({ algorithm });
+    
 
     //this.setState({ algorithm }, this.generateRandomArray);
   };

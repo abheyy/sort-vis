@@ -18,8 +18,11 @@ const AppControls = ({
 }) => {
   return (
     <Fragment>
+
+
+  
       <Menu
-        placeholder="Sort Algorithm"
+        placeholder="Sorting Algorithm"
         items={[
           'Bubble Sort',
           'Selection Sort',
@@ -33,6 +36,8 @@ const AppControls = ({
         onSelect={onAlgorithmChange}
       />
 
+      
+
       <div className="AppControls__Size">
         <span>Size</span>
         <Menu
@@ -43,11 +48,17 @@ const AppControls = ({
         />
       </div>
 
+
       <Button onClick={onGenerateRandomArray}>Random Array</Button>
 
-      <Button onClick={takeInputArray}
-      onSelect={onArraySizeChange}
-      >Generate Array</Button>
+
+<Button className="btnArr"   onClick={takeInputArray}
+    onSelect={onArraySizeChange}
+    >Generate Array</Button>
+
+      
+        
+      
       
 
       {/* <Switch
