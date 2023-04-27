@@ -5,6 +5,7 @@ import './style.css';
 const SortInfo = ({
   title,
   description,
+  pseudo,
   worstCase,
   avgCase,
   bestCase,
@@ -60,6 +61,18 @@ const SortInfo = ({
             </tbody>
           </table>
         </aside>
+        
+
+        <article className="pseudo">
+          {pseudo ? (
+            pseudo
+          ) : (
+            <p>
+              Pseudo code of Algorithm :
+            </p>
+          )}
+        </article>
+
       </div>
     </div>
   );
@@ -68,6 +81,7 @@ const SortInfo = ({
 SortInfo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.object,
+  Pseudo: PropTypes.object,
   worstCase: PropTypes.object,
   avgCase: PropTypes.object,
   bestCase: PropTypes.object,

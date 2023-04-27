@@ -41,6 +41,13 @@
   font-weight: 700;
 }
 
+.pseudo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .SortInfo__Aside {

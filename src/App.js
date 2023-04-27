@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import './AppDark.css';
+
 
 import AppControls from './components/molecules/AppControls';
 import TopBar from './components/organisms/TopBar';
@@ -42,7 +42,7 @@ class App extends Component {
   state = {
     darkMode: false,
     array: [],
-    arraySize: 10,
+    arraySize: 5,
     trace: [],
     algorithm: null,
     appDrawerOpen: false
@@ -110,36 +110,7 @@ class App extends Component {
     //this.setState({ algorithm }, this.generateRandomArray);
   };
 
-  //takes input from the user
 
-  //handle null values
-  // takeInputArray = () => {
-    
-  //     const input = prompt("Enter comma-separated array values:");
-  //     const inputArray = input.split(",").map((val) => parseInt(val.trim()));
-
-    
-    
-    
-    
-
-      
-      
-    
-   
-  //   if (inputArray.length >= this.state.arraySize) {
-  //     alert(`Array size should be ${this.state.arraySize}.`);
-  //   }
-
-
-  //   //onArraySizeChange(inputArray);
-    
-    
-  //   this.setState({
-  //     array: inputArray,
-  //     trace: []
-  //   }, this.createTrace);
-  // };
 
 
   takeInputArray = () => {

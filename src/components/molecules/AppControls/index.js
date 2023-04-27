@@ -22,7 +22,7 @@ const AppControls = ({
 
   
       <Menu
-        placeholder="Sorting Algorithm"
+        placeholder="Select Algorithm"
         items={[
           'Bubble Sort',
           'Selection Sort',
