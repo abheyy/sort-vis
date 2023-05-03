@@ -6,6 +6,7 @@ const SortInfo = ({
   title,
   description,
   pseudo,
+  reallife,
   worstCase,
   avgCase,
   bestCase,
@@ -73,6 +74,16 @@ const SortInfo = ({
           )}
         </article>
 
+        <article className="reallife">
+          {reallife ? (
+            reallife
+          ) : (
+            <p>
+              Real Life Implementation of Algorithm :
+            </p>
+          )}
+        </article>
+
       </div>
     </div>
   );
@@ -82,6 +93,7 @@ SortInfo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.object,
   Pseudo: PropTypes.object,
+  reallife:PropTypes.object,
   worstCase: PropTypes.object,
   avgCase: PropTypes.object,
   bestCase: PropTypes.object,

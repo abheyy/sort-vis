@@ -7,6 +7,35 @@ import {
   createKey
 } from './helpers';
 
+const real=`One real-world application of selection sort is in music sorting. When a user selects the option to sort their music by song title, artist name, or album, the music player software may use selection sort to sort the tracks based on the user's choice. For example, if the user chooses to sort by song title, the music player will use selection sort to sort the songs alphabetically by title. The same approach could be used to sort playlists, where the user can select to sort the songs in the playlist by name, length, or artist. Selection sort can be used in this scenario because the sorting is relatively simple, and the number of songs in a playlist or music library is typically not very large.`
+
+const code = `function selectionSort(arr) {
+  let len = arr.length;
+  let min;
+
+  for (let i = 0; i < len - 1; i++) {
+    min = i;
+
+    for (let j = i + 1; j < len; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }
+
+    if (min !== i) {
+      swap(arr, i, min);
+    }
+  }
+
+  return arr;
+}
+
+function swap(arr, i, j) {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}`;
+
 const SelectionSort = (nums) => {
   // Initial State
   const trace = newTrace(nums);
@@ -68,23 +97,24 @@ export const SelectionSortDesc = {
     </p>
   ),
   pseudo: (
-    <p>
+    <pre>
       
-        <h1>Bubble Sort Pseudo code</h1><br/>
+        <h1>Selection Sort Pseudo code</h1><br/>
       {' '}
-step 1.Start with an array of unsorted numbers<br/>
-step 2.Define a function called “bubbleSort” that takes in the array and the length of the array as parameters<br/>
-step 3.In the function, create a variable called “sorted” that is set to true<br/>
-step 4.Create a for loop that iterates through the array starting at index 0 and ending at the length of the array -1<br/>
-step 5.Within the for loop, compare the current element with the next element in the array<br/>
-step 6.If the current element is greater than the next element, swap their positions and set “sorted” to false<br/>
-step 7.After the for loop, check if “sorted” is false<br/>
-step 8.If “sorted” is false, call the “bubbleSort” function again with the same array and length as parameters<br/>
-step 9.If “sorted” is true, the array is now sorted and the function will return the sorted array<br/>
-step 10.Call the “bubbleSort” function with the initial unsorted array and its length as parameters to begin the sorting process.<br/>
+     {code}
       
-    </p>
+    </pre>
   ),
+  reallife:(
+   
+
+    <p>
+     <h1>Real World Implementation</h1>
+ 
+     {real}
+     </p>
+ 
+   ),
   worstCase: (
     <span>
       O(n<sup>2</sup>)

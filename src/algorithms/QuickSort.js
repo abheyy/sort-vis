@@ -8,6 +8,48 @@ import {
   createKey
 } from './helpers';
 
+const real=`Quick sort is used in many applications where a fast and efficient sorting algorithm is required. Some examples of its real-world implementation are:
+
+1. Computer Science: Quick sort is used in many computer science applications like database indexing, compiler implementation, and file search algorithms.
+
+2. Finance: Quick sort is used in finance applications to sort financial data like stocks, bonds, and other investment instruments. 
+
+3. Medicine: Quick sort is used in medical applications to sort medical records and patient data.
+
+4. Image Processing: Quick sort is used in image processing applications for sorting pixels and image data.
+
+5. Natural Language Processing: Quick sort is used in natural language processing applications to sort words and phrases.`
+
+const code=`function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left >= right) {
+    return;
+  }
+  const pivot = arr[Math.floor((left + right) / 2)];
+  const index = partition(arr, left, right, pivot);
+  quickSort(arr, left, index - 1);
+  quickSort(arr, index, right);
+  return arr;
+}
+
+function partition(arr, left, right, pivot) {
+  while (left <= right) {
+    while (arr[left] < pivot) {
+      left++;
+    }
+    while (arr[right] > pivot) {
+      right--;
+    }
+    if (left <= right) {
+      [arr[left], arr[right]] = [arr[right], arr[left]];
+      left++;
+      right--;
+    }
+  }
+  return left;
+}
+`;
+
+
 const QuickSort = (nums) => {
   // Initial State
   const trace = newTrace(nums);
@@ -167,23 +209,24 @@ export const QuickSortDesc = {
     </div>
   ),
   pseudo: (
-    <p>
+    <pre>
       
-        <h1>Bubble Sort Pseudo code</h1><br/>
+        <h1>Quick Sort Pseudo code</h1><br/>
       {' '}
-step 1.Start with an array of unsorted numbers<br/>
-step 2.Define a function called “bubbleSort” that takes in the array and the length of the array as parameters<br/>
-step 3.In the function, create a variable called “sorted” that is set to true<br/>
-step 4.Create a for loop that iterates through the array starting at index 0 and ending at the length of the array -1<br/>
-step 5.Within the for loop, compare the current element with the next element in the array<br/>
-step 6.If the current element is greater than the next element, swap their positions and set “sorted” to false<br/>
-step 7.After the for loop, check if “sorted” is false<br/>
-step 8.If “sorted” is false, call the “bubbleSort” function again with the same array and length as parameters<br/>
-step 9.If “sorted” is true, the array is now sorted and the function will return the sorted array<br/>
-step 10.Call the “bubbleSort” function with the initial unsorted array and its length as parameters to begin the sorting process.<br/>
+      {code}
       
-    </p>
+    </pre>
   ),
+  reallife:(
+   
+
+    <p>
+     <h1>Real World Implementation</h1>
+ 
+     {real}
+     </p>
+ 
+   ),
   worstCase: (
     <span>
       O(<em>n</em>
@@ -205,6 +248,7 @@ step 10.Call the “bubbleSort” function with the initial unsorted array and i
       O(log<em>n</em>)
     </span>
   )
+
 };
 
 export default QuickSort;

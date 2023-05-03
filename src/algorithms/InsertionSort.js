@@ -1,6 +1,20 @@
 import React from 'react';
 import { newTrace, addToTrace, createKey } from './helpers';
 
+const real=`Insertion sort is used in many real-world applications where data is being continuously added to a list, and the list needs to be kept in a sorted order. One such example is the sorting of card decks. When a new card is dealt, it is inserted into the correct position in the player's hand, keeping the hand sorted at all times. Another example is the insertion of new data into a database table with a clustered index. In this case, the new data is inserted into the correct position in the index to maintain the sorted order of the table. Insertion sort can also be used in situations where the list is already partially sorted, as it has an efficient average case time complexity of O(n^2) and a best case time complexity of O(n) when the list is already sorted.`
+
+const code = `function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let currentVal = arr[i];
+    let j;
+    for (j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = currentVal;
+  }
+  return arr;
+}`;
+
 const InsertionSort = (nums) => {
   // Initial State
   const trace = newTrace(nums);
@@ -58,23 +72,27 @@ export const InsertionSortDesc = {
     </p>
   ),
   pseudo: (
-    <p>
+    
+    <pre>
       
-        <h1>Bubble Sort Pseudo code</h1><br/>
+        <h1>Insertion Sort Pseudo code</h1><br/>
       {' '}
-step 1.Start with an array of unsorted numbers<br/>
-step 2.Define a function called “bubbleSort” that takes in the array and the length of the array as parameters<br/>
-step 3.In the function, create a variable called “sorted” that is set to true<br/>
-step 4.Create a for loop that iterates through the array starting at index 0 and ending at the length of the array -1<br/>
-step 5.Within the for loop, compare the current element with the next element in the array<br/>
-step 6.If the current element is greater than the next element, swap their positions and set “sorted” to false<br/>
-step 7.After the for loop, check if “sorted” is false<br/>
-step 8.If “sorted” is false, call the “bubbleSort” function again with the same array and length as parameters<br/>
-step 9.If “sorted” is true, the array is now sorted and the function will return the sorted array<br/>
-step 10.Call the “bubbleSort” function with the initial unsorted array and its length as parameters to begin the sorting process.<br/>
+      {code}
       
-    </p>
+
+    </pre>
   ),
+
+  reallife:(
+   
+
+    <p>
+     <h1>Real World Implementation</h1>
+ 
+     {real}
+     </p>
+ 
+   ),
   worstCase: (
     <span>
       O(n<sup>2</sup>)

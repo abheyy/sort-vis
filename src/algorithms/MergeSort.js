@@ -1,6 +1,38 @@
 import React from 'react';
 import { newTrace, addToTrace, createKey } from './helpers';
 
+const real=`One real-world implementation of merge sort is in sorting large data sets in databases. When a database query returns a large number of rows, it is often more efficient to sort the data using an algorithm like merge sort rather than in the database itself. Merge sort is also used in external sorting, where data is too large to fit in memory and must be sorted using disk-based algorithms. This is common in applications that process large files, such as sorting log files or processing large datasets. In addition, merge sort is used in distributed computing systems, where data is split across multiple nodes and then sorted using merge sort before being merged back together.`
+
+const code = `function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      result.push(left[i]);
+      i++;
+    } else {
+      result.push(right[j]);
+      j++;
+    }
+  }
+
+  return result.concat(left.slice(i)).concat(right.slice(j));
+}`
+
 const MergeSort = (nums) => {
   // Initial State
   const trace = newTrace(nums);
@@ -119,23 +151,24 @@ export const MergeSortDesc = {
     </div>
   ),
   pseudo: (
-    <p>
+    <pre>
       
-        <h1>Bubble Sort Pseudo code</h1><br/>
+        <h1>Merge Sort Pseudo code</h1><br/>
       {' '}
-step 1.Start with an array of unsorted numbers<br/>
-step 2.Define a function called “bubbleSort” that takes in the array and the length of the array as parameters<br/>
-step 3.In the function, create a variable called “sorted” that is set to true<br/>
-step 4.Create a for loop that iterates through the array starting at index 0 and ending at the length of the array -1<br/>
-step 5.Within the for loop, compare the current element with the next element in the array<br/>
-step 6.If the current element is greater than the next element, swap their positions and set “sorted” to false<br/>
-step 7.After the for loop, check if “sorted” is false<br/>
-step 8.If “sorted” is false, call the “bubbleSort” function again with the same array and length as parameters<br/>
-step 9.If “sorted” is true, the array is now sorted and the function will return the sorted array<br/>
-step 10.Call the “bubbleSort” function with the initial unsorted array and its length as parameters to begin the sorting process.<br/>
+      {code}
       
-    </p>
+    </pre>
   ),
+  reallife:(
+   
+
+    <p>
+     <h1>Real World Implementation</h1>
+ 
+     {real}
+     </p>
+ 
+   ),
   worstCase: (
     <span>
       O(<em>n</em> log <em>n</em>)

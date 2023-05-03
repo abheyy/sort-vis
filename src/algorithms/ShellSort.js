@@ -7,6 +7,33 @@ import {
   createKey
 } from './helpers';
 
+const code = `function shellSort(arr) {
+  let n = arr.length;
+
+  // Start with a big gap, then reduce the gap
+  for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+    // Do a gapped insertion sort for this gap size.
+    // The first gap elements arr[0..gap-1] are already in gapped order
+    // keep adding one more element until the entire array is gap sorted
+    for (let i = gap; i < n; i++) {
+      // add arr[i] to the elements that have been gap sorted
+      // save arr[i] in temp and make a hole at position i
+      let temp = arr[i];
+
+      // shift earlier gap-sorted elements up until the correct location for arr[i] is found
+      let j;
+      for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+        arr[j] = arr[j - gap];
+      }
+
+      // put temp (the original arr[i]) in its correct location
+      arr[j] = temp;
+    }
+  }
+  return arr;
+}`
+
+
 const ShellSort = (nums) => {
   const trace = newTrace(nums);
 
@@ -62,22 +89,13 @@ export const ShellSortDesc = {
     </div>
   ),
   pseudo: (
-    <p>
+    <pre>
       
         <h1>Bubble Sort Pseudo code</h1><br/>
       {' '}
-step 1.Start with an array of unsorted numbers<br/>
-step 2.Define a function called “bubbleSort” that takes in the array and the length of the array as parameters<br/>
-step 3.In the function, create a variable called “sorted” that is set to true<br/>
-step 4.Create a for loop that iterates through the array starting at index 0 and ending at the length of the array -1<br/>
-step 5.Within the for loop, compare the current element with the next element in the array<br/>
-step 6.If the current element is greater than the next element, swap their positions and set “sorted” to false<br/>
-step 7.After the for loop, check if “sorted” is false<br/>
-step 8.If “sorted” is false, call the “bubbleSort” function again with the same array and length as parameters<br/>
-step 9.If “sorted” is true, the array is now sorted and the function will return the sorted array<br/>
-step 10.Call the “bubbleSort” function with the initial unsorted array and its length as parameters to begin the sorting process.<br/>
+      {code}
       
-    </p>
+    </pre>
   ),
   worstCase: (
     <span>
