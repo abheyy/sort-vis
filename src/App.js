@@ -107,7 +107,7 @@ class App extends Component {
     this.setState({ algorithm });
     
 
-    //this.setState({ algorithm }, this.generateRandomArray);
+    this.setState({ algorithm }, this.generateRandomArray);
   };
 
 
