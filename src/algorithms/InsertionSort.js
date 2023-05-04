@@ -1,19 +1,61 @@
 import React from 'react';
 import { newTrace, addToTrace, createKey } from './helpers';
 
+const algorithmsteps=`Step 1: Start with an unsorted array.
+
+Step 2: Iterate through the array starting from the second element.
+
+Step 3: For each element, compare it with the elements to its left until you find the correct position to insert it.
+
+Step 4: Shift all the elements to the right of the insertion point one position to the right.
+
+Step 5: Insert the element in the correct position.
+
+Step 6: Repeat steps 2-5 until the entire array is sorted.`
+
+const exmp=`
+
+Let's assume we have the following unsorted array: [7, 2, 5, 1, 8, 3]
+
+Step 1: Start with the unsorted array.
+
+Array before sorting: [7, 2, 5, 1, 8, 3]
+
+Step 2: Iterate through the array starting from the second element.
+
+For each element, compare it with the elements to its left until you find the correct position to insert it.
+
+Array after iteration 1: [2, 7, 5, 1, 8, 3]
+
+Array after iteration 2: [2, 5, 7, 1, 8, 3]
+
+Array after iteration 3: [1, 2, 5, 7, 8, 3]
+
+Array after iteration 4: [1, 2, 5, 7, 8, 3]
+
+Array after iteration 5: [1, 2, 3, 5, 7, 8]
+
+Step 6: The array is now sorted in ascending order.
+
+After step 6, the array will look like this: [1, 2, 3, 5, 7, 8]
+
+Now, the array is sorted in ascending order.`;
+
 const real=`Insertion sort is used in many real-world applications where data is being continuously added to a list, and the list needs to be kept in a sorted order. One such example is the sorting of card decks. When a new card is dealt, it is inserted into the correct position in the player's hand, keeping the hand sorted at all times. Another example is the insertion of new data into a database table with a clustered index. In this case, the new data is inserted into the correct position in the index to maintain the sorted order of the table. Insertion sort can also be used in situations where the list is already partially sorted, as it has an efficient average case time complexity of O(n^2) and a best case time complexity of O(n) when the list is already sorted.`
 
-const code = `function insertionSort(arr) {
-  for (let i = 1; i < arr.length; i++) {
-    let currentVal = arr[i];
-    let j;
-    for (j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-      arr[j + 1] = arr[j];
-    }
-    arr[j + 1] = currentVal;
+const code = `void insertionSort(int arr[], int n) {
+  int i, j, key;
+  for (i = 1; i < n; i++) {
+      key = arr[i];
+      j = i - 1;
+      while (j >= 0 && arr[j] > key) {
+          arr[j+1] = arr[j];
+          j = j - 1;
+      }
+      arr[j+1] = key;
   }
-  return arr;
-}`;
+}
+`;
 
 const InsertionSort = (nums) => {
   // Initial State
@@ -75,7 +117,7 @@ export const InsertionSortDesc = {
     
     <pre>
       
-        <h1>Insertion Sort Pseudo code</h1><br/>
+        <h1>Code in C language : </h1><br/>
       {' '}
       {code}
       
@@ -93,6 +135,18 @@ export const InsertionSortDesc = {
      </p>
  
    ),
+   algo:(
+    <pre>
+      <h1>ALGORITHM</h1>
+      {algorithmsteps}
+    </pre>
+  ),
+  exmp:(
+    <pre>
+      <h1>Insertion Sort Step-by-Step:</h1>
+      {exmp}
+    </pre>
+  ),
   worstCase: (
     <span>
       O(n<sup>2</sup>)

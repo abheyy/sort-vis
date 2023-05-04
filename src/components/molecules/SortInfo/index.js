@@ -7,6 +7,8 @@ const SortInfo = ({
   description,
   pseudo,
   reallife,
+  algo,
+  exmp,
   worstCase,
   avgCase,
   bestCase,
@@ -62,6 +64,16 @@ const SortInfo = ({
             </tbody>
           </table>
         </aside>
+
+        <article className="reallife">
+          {reallife ? (
+            reallife
+          ) : (
+            <p>
+              
+            </p>
+          )}
+        </article>
         
 
         <article className="pseudo">
@@ -69,17 +81,29 @@ const SortInfo = ({
             pseudo
           ) : (
             <p>
-              Pseudo code of Algorithm :
+               
             </p>
           )}
         </article>
 
-        <article className="reallife">
-          {reallife ? (
-            reallife
+      
+
+        <article className="algo">
+          {algo ? (
+            algo
           ) : (
             <p>
-              Real Life Implementation of Algorithm :
+
+            </p>
+          )}
+        </article>
+
+        <article className="exmp">
+          {exmp ? (
+            exmp
+          ) : (
+            <p>
+
             </p>
           )}
         </article>
@@ -94,6 +118,8 @@ SortInfo.propTypes = {
   description: PropTypes.object,
   Pseudo: PropTypes.object,
   reallife:PropTypes.object,
+  algo:PropTypes.object,
+  exmp: PropTypes.object,
   worstCase: PropTypes.object,
   avgCase: PropTypes.object,
   bestCase: PropTypes.object,

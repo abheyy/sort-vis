@@ -7,6 +7,66 @@ import {
   createKey
 } from './helpers';
 
+
+const algorithmsteps=`Step 1: Start with an unsorted array and choose a gap value.
+
+Step 2: Divide the array into sub-arrays of size gap and sort each sub-array using Insertion Sort.
+
+Step 3: Reduce the gap value and repeat step 2 until the gap value is 1.
+
+Step 4: Perform one final Insertion Sort on the entire array.
+
+step 5 :Return the sorted array.`
+
+
+const exmp=`
+
+Let's assume we have the following unsorted array: [7, 2, 5, 1, 8, 3]
+
+Step 1: Start with the unsorted array and choose a gap value.
+
+We choose a gap value of 3.
+
+Array before sorting: [7, 2, 5, 1, 8, 3]
+
+Step 2: Divide the array into sub-arrays of size gap and sort each sub-array using Insertion Sort.
+
+Sub-array 1: [7, 1]
+
+Sub-array 2: [2, 8]
+
+Sub-array 3: [5, 3]
+
+Sorting each sub-array using Insertion Sort:
+
+Sub-array 1 after sorting: [1, 7]
+
+Sub-array 2 after sorting: [2, 8]
+
+Sub-array 3 after sorting: [3, 5]
+
+Array after sorting each sub-array: [1, 7, 2, 8, 3, 5]
+
+Step 3: Reduce the gap value and repeat step 2 until the gap value is 1.
+
+We reduce the gap value to 1.
+
+Sub-array 1: [1, 7, 2, 8, 3, 5]
+
+Sorting the entire array using Insertion Sort:
+
+Array after sorting: [1, 2, 3, 5, 7, 8]
+
+Step 4: Perform one final Insertion Sort on the entire array.
+
+Array after final Insertion Sort: [1, 2, 3, 5, 7, 8]
+
+Step 5: Return the sorted array.
+
+After step 5, the array will look like this: [1, 2, 3, 5, 7, 8]
+
+Now, the array is sorted in ascending order.`;
+
 const code = `function shellSort(arr) {
   let n = arr.length;
 
@@ -91,10 +151,22 @@ export const ShellSortDesc = {
   pseudo: (
     <pre>
       
-        <h1>Bubble Sort Pseudo code</h1><br/>
+        <h1>Code in C language : </h1><br/>
       {' '}
       {code}
       
+    </pre>
+  ),
+  algo:(
+    <pre>
+      <h1>ALGORITHM</h1>
+      {algorithmsteps}
+    </pre>
+  ),
+  exmp:(
+    <pre>
+      <h1>Shell Sort Step-by-Step:</h1>
+      {exmp}
     </pre>
   ),
   worstCase: (

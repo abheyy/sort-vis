@@ -8,6 +8,62 @@ import {
   createKey
 } from './helpers';
 
+const algorithmsteps=`Step 1: Start with an unsorted array and choose a pivot element.
+
+Step 2: Partition the array into two sub-arrays - one with elements smaller than the pivot and one with elements greater than the pivot.
+
+Step 3: Recursively repeat the above step for each sub-array.
+
+Step 4: Concatenate the sorted sub-arrays to get the final sorted array.`
+
+const exmp=`
+
+Let's assume we have the following unsorted array: [7, 2, 5, 1, 8, 3]
+
+Step 1: Start with the unsorted array and choose a pivot element.
+
+We choose the last element (3) as the pivot.
+
+Array before sorting: [7, 2, 5, 1, 8, 3]
+
+Step 2: Partition the array into two sub-arrays - one with elements smaller than the pivot and one with elements greater than the pivot.
+
+[2, 1, 3] [7, 5, 8]
+
+Step 3: Recursively repeat the above step for each sub-array.
+
+Sorting [2, 1, 3]:
+
+We choose the last element (3) as the pivot.
+
+[2, 1] [3]
+
+We choose the last element (1) as the pivot.
+
+[1] [2]
+
+Sorting [7, 5, 8]:
+
+We choose the last element (8) as the pivot.
+
+[7, 5] [8]
+
+We choose the last element (5) as the pivot.
+
+[5] [7]
+
+Step 4: Concatenate the sorted sub-arrays to get the final sorted array.
+
+[1, 2, 3] [5, 7, 8]
+
+Concatenating the sub-arrays to get [1, 2, 3, 5, 7, 8]
+
+Step 5: Return the sorted array.
+
+After step 5, the array will look like this: [1, 2, 3, 5, 7, 8]
+
+Now, the array is sorted in ascending order.`;
+
 const real=`Quick sort is used in many applications where a fast and efficient sorting algorithm is required. Some examples of its real-world implementation are:
 
 1. Computer Science: Quick sort is used in many computer science applications like database indexing, compiler implementation, and file search algorithms.
@@ -20,33 +76,21 @@ const real=`Quick sort is used in many applications where a fast and efficient s
 
 5. Natural Language Processing: Quick sort is used in natural language processing applications to sort words and phrases.`
 
-const code=`function quickSort(arr, left = 0, right = arr.length - 1) {
-  if (left >= right) {
-    return;
-  }
-  const pivot = arr[Math.floor((left + right) / 2)];
-  const index = partition(arr, left, right, pivot);
-  quickSort(arr, left, index - 1);
-  quickSort(arr, index, right);
-  return arr;
-}
+const code=`int partition(int arr[], int low, int high) {
+  int pivot = arr[high];
+  int i = low - 1;
+  int j;
 
-function partition(arr, left, right, pivot) {
-  while (left <= right) {
-    while (arr[left] < pivot) {
-      left++;
-    }
-    while (arr[right] > pivot) {
-      right--;
-    }
-    if (left <= right) {
-      [arr[left], arr[right]] = [arr[right], arr[left]];
-      left++;
-      right--;
-    }
+  for (j = low; j <= high-1; j++) {
+      if (arr[j] < pivot) {
+          i++;
+          int temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+      }
   }
-  return left;
-}
+  int temp = arr[i+1];
+  arr[i+1] = arr[high
 `;
 
 
@@ -211,7 +255,7 @@ export const QuickSortDesc = {
   pseudo: (
     <pre>
       
-        <h1>Quick Sort Pseudo code</h1><br/>
+        <h1>Code in C language : </h1><br/>
       {' '}
       {code}
       
@@ -227,6 +271,18 @@ export const QuickSortDesc = {
      </p>
  
    ),
+   algo:(
+    <pre>
+      <h1>ALGORITHM</h1>
+      {algorithmsteps}
+    </pre>
+  ),
+  exmp:(
+    <pre>
+      <h1>Quick Sort Step-by-Step:</h1>
+      {exmp}
+    </pre>
+  ),
   worstCase: (
     <span>
       O(<em>n</em>

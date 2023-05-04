@@ -7,34 +7,81 @@ import {
   createKey
 } from './helpers';
 
+
+
 const real=`One real-world application of selection sort is in music sorting. When a user selects the option to sort their music by song title, artist name, or album, the music player software may use selection sort to sort the tracks based on the user's choice. For example, if the user chooses to sort by song title, the music player will use selection sort to sort the songs alphabetically by title. The same approach could be used to sort playlists, where the user can select to sort the songs in the playlist by name, length, or artist. Selection sort can be used in this scenario because the sorting is relatively simple, and the number of songs in a playlist or music library is typically not very large.`
 
-const code = `function selectionSort(arr) {
-  let len = arr.length;
-  let min;
+const algorithmsteps=`Step 1: Start with an unsorted array.
 
-  for (let i = 0; i < len - 1; i++) {
-    min = i;
+Step 2: Set the first element as the minimum value.
 
-    for (let j = i + 1; j < len; j++) {
-      if (arr[j] < arr[min]) {
-        min = j;
+Step 3: Iterate through the remaining elements of the array to find the minimum value.
+
+Step 4: Swap the minimum value with the first element.
+
+Step 5: Repeat steps 2-4 for each subsequent element in the array.
+
+Step 6: Return the sorted array.`
+
+const exmp=`
+
+Let's assume we have the following unsorted array: [7, 2, 5, 1, 8, 3]
+
+Step 1: Start with the unsorted array.
+
+Array before sorting: [7, 2, 5, 1, 8, 3]
+
+Step 2: Set the first element as the minimum value.
+
+Minimum value = 7
+
+Step 3: Iterate through the remaining elements of the array to find the minimum value.
+
+Minimum value found = 1
+
+Step 4: Swap the minimum value with the first element.
+
+Array after swapping: [1, 2, 5, 7, 8, 3]
+
+Step 5: Repeat steps 2-4 for each subsequent element in the array.
+
+Minimum value = 2
+
+Array after swapping: [1, 2, 5, 7, 8, 3]
+
+Minimum value = 3
+
+Array after swapping: [1, 2, 3, 7, 8, 5]
+
+Minimum value = 5
+
+Array after swapping: [1, 2, 3, 5, 8, 7]
+
+Minimum value = 7
+
+Array after swapping: [1, 2, 3, 5, 7, 8]
+
+Step 6: Return the sorted array.
+
+After step 6, the array will look like this: [1, 2, 3, 5, 7, 8]
+
+Now, the array is sorted in ascending order.`;
+
+const code = `void selectionSort(int arr[], int n) {
+  int i, j, min_idx;
+  for (i = 0; i < n-1; i++) {
+      min_idx = i;
+      for (j = i+1; j < n; j++) {
+          if (arr[j] < arr[min_idx]) {
+              min_idx = j;
+          }
       }
-    }
-
-    if (min !== i) {
-      swap(arr, i, min);
-    }
+      int temp = arr[i];
+      arr[i] = arr[min_idx];
+      arr[min_idx] = temp;
   }
-
-  return arr;
 }
-
-function swap(arr, i, j) {
-  let temp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = temp;
-}`;
+`;
 
 const SelectionSort = (nums) => {
   // Initial State
@@ -99,7 +146,7 @@ export const SelectionSortDesc = {
   pseudo: (
     <pre>
       
-        <h1>Selection Sort Pseudo code</h1><br/>
+        <h1>Code in C language : </h1><br/>
       {' '}
      {code}
       
@@ -115,6 +162,18 @@ export const SelectionSortDesc = {
      </p>
  
    ),
+   algo:(
+    <pre>
+      <h1>ALGORITHM</h1>
+      {algorithmsteps}
+    </pre>
+  ),
+  exmp:(
+    <pre>
+      <h1>Selection Sort Step-by-Step:</h1>
+      {exmp}
+    </pre>
+  ),
   worstCase: (
     <span>
       O(n<sup>2</sup>)

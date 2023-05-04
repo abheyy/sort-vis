@@ -51,6 +51,20 @@
   width: 100%;
 }
 
+.exmp{
+  margin-top: 20px;
+  width: 100%
+
+}
+.algo{
+  margin-top: 20px;
+  width: 100%;
+
+}
+
+.algo pre,
+.exmp pre,
+
 .pseudo pre,
 .reallife pre {
   background-color: #f1f1f1;

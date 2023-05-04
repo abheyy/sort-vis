@@ -8,7 +8,55 @@ import {
   createKey
 } from './helpers';
 
-const real=`Heap sort is a popular sorting algorithm that is commonly used in real-world applications. One common real-life application of heap sort is in the implementation of priority queues. Priority queues are data structures that store elements with associated priorities, and allow the highest-priority element to be retrieved first.
+const algorithmsteps=`Step 1: Start with an unsorted array.
+
+Step 2: Build a max heap from the array. This is done by repeatedly comparing each node with its children, and swapping them if necessary until the entire tree satisfies the max heap property.
+
+Step 3: Swap the root node (which contains the largest element) with the last element in the array.
+
+Step 4: Reduce the heap size by one.
+
+Step 5: Restore the max heap property by sifting down the new root node.
+
+Step 6: Repeat steps 3-5 until the heap size is one.
+
+Step 7: The array is now sorted in ascending order.`;
+
+
+
+const exmp=`Let's assume we have the following unsorted array: [7, 2, 5, 1, 8, 3]
+
+Step 1: Build a max heap from the array.
+
+After building the max heap, the array will look like this: [8, 7, 5, 1, 2, 3]
+
+Step 2: Swap the root node (8) with the last element in the array (3).
+
+Array after step 2: [3, 7, 5, 1, 2, 8]
+
+Step 3: Reduce the heap size by one.
+
+Heap size after step 3: 5
+
+Step 4: Restore the max heap property by sifting down the new root node (3).
+
+After sifting down the new root node, the array will look like this: [7, 3, 5, 1, 2, 8]
+
+Step 5: Repeat steps 3-5 until the heap size is one.
+
+After step 5, the array will look like this: [2, 3, 5, 1, 7, 8]
+
+After step 6, the array will look like this: [1, 3, 5, 2, 7, 8]
+
+After step 7, the array will look like this: [1, 2, 5, 3, 7, 8]
+
+After step 8, the array will look like this: [1, 2, 3, 5, 7, 8]
+
+Now, the array is sorted in ascending order.`;
+
+const real=`
+
+Heap sort is a popular sorting algorithm that is commonly used in real-world applications. One common real-life application of heap sort is in the implementation of priority queues. Priority queues are data structures that store elements with associated priorities, and allow the highest-priority element to be retrieved first.
 
 Heap sort is used to implement the priority queue because the heap data structure provides efficient operations for adding and removing elements with the highest priority. The heap data structure is a binary tree where each node is greater than or equal to its children. This ensures that the highest-priority element is always at the root of the tree, making it easy to retrieve.
 
@@ -16,47 +64,40 @@ When new elements are added to the priority queue, they are inserted into the he
 
 In addition to priority queues, heap sort can also be used for other applications where efficient sorting is needed, such as in database indexing or in sorting large datasets in memory-constrained environments.`
 
-const code = `function heapSort(arr) {
-  let len = arr.length;
+const code = `void heapify(int arr[], int n, int i) {
+  int largest = i; 
+  int l = 2*i + 1; 
+  int r = 2*i + 2; 
 
-  // Build max heap
-  for (let i = Math.floor(len / 2); i >= 0; i--) {
-    heapify(arr, len, i);
-  }
+  if (l < n && arr[l] > arr[largest]) 
+      largest = l; 
 
-  // Heap sort
-  for (let i = len - 1; i >= 0; i--) {
-    swap(arr, 0, i);
-    heapify(arr, i, 0);
-  }
+  if (r < n && arr[r] > arr[largest]) 
+      largest = r; 
 
-  return arr;
+  if (largest != i) { 
+      int temp = arr[i];
+      arr[i] = arr[largest];
+      arr[largest] = temp;
+
+      heapify(arr, n, largest); 
+  } 
 }
 
-function heapify(arr, n, i) {
-  let largest = i;
-  let left = 2 * i + 1;
-  let right = 2 * i + 2;
+void heapSort(int arr[], int n) {
+  int i;
+  for (i = n / 2 - 1; i >= 0; i--) 
+      heapify(arr, n, i); 
 
-  if (left < n && arr[left] > arr[largest]) {
-    largest = left;
-  }
+  for (i = n-1; i >= 0; i--) { 
+      int temp = arr[0];
+      arr[0] = arr[i];
+      arr[i] = temp;
 
-  if (right < n && arr[right] > arr[largest]) {
-    largest = right;
-  }
-
-  if (largest !== i) {
-    swap(arr, i, largest);
-    heapify(arr, n, largest);
-  }
+      heapify(arr, i, 0); 
+  } 
 }
-
-function swap(arr, i, j) {
-  let temp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = temp;
-}`;
+`;
 
 const HeapSort = (nums) => {
   const trace = newTrace(nums);
@@ -212,7 +253,7 @@ export const HeapSortDesc = {
   pseudo: (
     <pre>
       
-        <h1>Heap Sort Pseudo code</h1><br/>
+        <h1>Code in C language : </h1><br/>
       {' '}
       {code}
       
@@ -228,6 +269,18 @@ export const HeapSortDesc = {
      </p>
  
    ),
+   algo:(
+    <pre>
+      <h1>ALGORITHM</h1>
+      {algorithmsteps}
+    </pre>
+  ),
+  exmp:(
+    <pre>
+      <h1>Heap Sort Step-by-Step:</h1>
+      {exmp}
+    </pre>
+  ),
   worstCase: (
     <span>
       O(<em>n</em> log <em>n</em>)
