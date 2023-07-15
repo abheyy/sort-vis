@@ -5,6 +5,7 @@ import './style.css';
 import Button from '../../atoms/Button';
 import Switch from '../../atoms/Switch';
 import Menu from '../../molecules/Menu';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const AppControls = ({
   algorithm,
@@ -14,9 +15,12 @@ const AppControls = ({
   arraySize,
   onArraySizeChange,
   onToggleDarkMode,
-  darkMode
+  darkMode,
+  loginWithRedirect
+  
 }) => {
   return (
+    
     <Fragment>
 
 
@@ -52,9 +56,12 @@ const AppControls = ({
       <Button onClick={onGenerateRandomArray}>Random Array</Button>
 
 
+
 <Button className="btnArr"   onClick={takeInputArray}
     onSelect={onArraySizeChange}
     >Generate Array</Button>
+
+{/* <button className="loginbtn" onClick={() => loginWithRedirect()}>Log In</button> */}
 
       
         
@@ -78,6 +85,7 @@ AppControls.propTypes = {
   arraySize: PropTypes.number,
   onArraySizeChange: PropTypes.func.isRequired,
   onToggleDarkMode: PropTypes.func.isRequired,
+  loginWithRedirect: PropTypes.func.isRequired,
   darkMode: PropTypes.bool
 };
 

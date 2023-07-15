@@ -6,6 +6,8 @@ import AppControls from './components/molecules/AppControls';
 import TopBar from './components/organisms/TopBar';
 import AppDrawer from './components/organisms/AppDrawer';
 import SortVisualizer from './components/organisms/SortVisualizer';
+import { Auth0Provider, withAuth0 } from "@auth0/auth0-react";
+
 
 
 import BubbleSort, {
@@ -22,7 +24,7 @@ import InsertionSort, {
 } from './algorithms/InsertionSort';
 import MergeSort, {
   MergeSortKey,
-  MergeSortDesc
+  MergeSortDesc 
 } from './algorithms/MergeSort';
 import QuickSort, {
   QuickSortKey,
@@ -94,6 +96,8 @@ class App extends Component {
       .fill(0)
       .map(() => getRandomInt(this.state.arraySize * 5));
 
+    
+
     this.setState(
       {
         array,
@@ -135,6 +139,12 @@ class App extends Component {
     }
   };
 
+  // loginWithRedirect = () => {
+  //   const { loginWithRedirect } = this.props.auth0;
+  //   loginWithRedirect();
+  // };
+  
+
   
   
 
@@ -145,6 +155,7 @@ class App extends Component {
     this.setState({ arraySize: size }, this.generateRandomArray);
   };
 
+ 
 
 
   createTrace = () => {
@@ -167,6 +178,7 @@ class App extends Component {
   };
 
   render() {
+    
     <title>SortVisualizer</title>
     let theme = `App`;
     if (this.state.darkMode) theme += ` App_dark`;
@@ -174,6 +186,7 @@ class App extends Component {
 
     const colorKey = this.ALGORITHM_KEY[this.state.algorithm];
     const desc = this.ALGORITHM_DESC[this.state.algorithm];
+    
 
     const controls = (
       <AppControls
@@ -185,6 +198,7 @@ class App extends Component {
         onArraySizeChange={this.handleArraySizeChange}
         onToggleDarkMode={this.toggleDarkMode}
         darkMode={this.state.darkMode}
+        loginWithRedirect={this.state.login}
       />
     );
 
@@ -218,4 +232,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuth0(App);
